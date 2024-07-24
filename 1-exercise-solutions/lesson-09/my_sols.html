@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>9a</button>
+    <button class = 'button-2'>9b</button>
+    <br>
+    <br>
+    <button class = 'heads' onclick="
+        document.querySelector('.choose').innerHTML = 'You choose Heads'
+    ">heads</button>
+    <button class = 'tails' onclick="
+        document.querySelector('.choose').innerHTML = 'You choose Tails'
+    ">tails</button>
+    <p class = 'choose'></p>
+
+    <input placeholder="Name" class = 'input' onkeydown=" 
+    if (event.key === 'Enter') 
+    {displayNames();}">
+
+    <button onclick= "displayNames();">Submit</button>
+
+    <p class = 'final'></p>
+
+    <input placeholder="try this" class = 'input' onkeyup="
+    const input = document.querySelector('.input');
+    document.querySelector('.nine-h').innerHTML = input.value;
+    ">
+
+    <p class = 'nine-h'></p>
+
+
+
+
+    <script>
+        console.log(document.querySelector('button'));
+        document.querySelector('.button-2').innerHTML = '9b done!';
+
+        function displayNames()
+        {
+            const input = document.querySelector('.input');
+            document.querySelector('.final').innerHTML = `your name is ${input.value}`
+        }
+
+
+    </script>
+    
+</body>
+</html>
