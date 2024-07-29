@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      .amazon-button {
+        background-color: rgb(255, 216, 20);
+        border: none;
+        padding: 5px 40px;
+        border-radius: 20px;
+        cursor: pointer;
+      }
+
+      .uber-button-1{
+        border: none;
+        padding: 8px 20px;
+        font-weight: bold;
+        border-radius: 5px;
+        background-color: black;
+        color: white;
+      }
+      .uber-button-2{
+        border: none; 
+        padding: 8px 20px;
+        font-weight: bold;
+        border-radius: 5px;
+      }
+
+      .toggle-button {
+        background-color: rgb(230, 230, 230);
+        border: none;
+        padding: 10px 15px;
+        border-radius: 5px;
+        margin-right: 10px;
+        font-size: 15px;
+        cursor: pointer;
+      }
+
+      .is-toggled {
+        background-color: black;
+        color: white;
+      }
+
+    </style>
+  </head>
+  <body>
+    <button class="amazon-button">Add to Cart</button>
+
+    <button class = "uber-button-1">Request Now</button>
+    <button class = "uber-button-2">Schedule for later</button>
+
+    <button class="toggle-button js-button" onclick="isToggled(this)">Gaming</button>
+    <button class="toggle-button js-button" onclick="isToggled(this)">Music</button>
+    <button class="toggle-button js-button" onclick="isToggled(this)">Tech</button>
+
+<script>
+  function isToggled(button){
+    if (!button.classList.contains('is-toggled')) {
+      //before turning on check if others buttons are off
+      turnOffButton();
+      button.classList.add('is-toggled');
+    } else {
+      button.classList.remove('is-toggled');
+    }
+  }
+
+  function turnOffButton(){
+    const previousButton = document.querySelector('.is-toggled');
+    if (previousButton) {
+      previousButton.classList.remove('is-toggled');}
+  }
+
+</script>
+   
+  </body>
+</html>
