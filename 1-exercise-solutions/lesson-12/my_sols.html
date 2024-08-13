@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lesson-12-sols</title>
+</head>
+<body>
+    <button class = "finished-button">Finish</button>
+    <button class = "add-to-cart-button">Add to Cart</button>
+    <button onclick="messages++;">Add</button>
+    <button onclick="messages--;">Remove</button>
+
+    <script>
+        //a
+        const func = function add()
+        {
+            console.log(2+2);
+        }
+
+        func();
+        func();
+
+        //b
+        function runTwice(func)
+        {
+            func();
+            func();
+        }
+
+        runTwice(func);
+
+        //c and d
+        const finishButton = document.querySelector(".finished-button");
+
+        finishButton.addEventListener('click', ()=>{
+                finishButton.textContent = "Loading...";
+        });
+
+        finishButton.addEventListener('click', () => {
+            setTimeout(function() {
+                // Change the button text to "Finished"
+                finishButton.textContent = "Finished";
+            }, 1000); 
+        });
+
+        //e
+        let timeoutID;
+
+        const addCartButton = document.querySelector(".add-to-cart-button");
+
+        addCartButton.addEventListener('click', ()=>{
+            addCartButton.textContent = "Added";
+
+            clearTimeout(timeoutID);
+
+            timeoutID = setTimeout(function() {
+                addCartButton.textContent = "Add to Cart";
+            }, 2000); 
+        });
+
+        //g h i
+        let messages = 2;
+        setInterval(function() {
+            if (document.title === 'App')
+            {
+                if(messages === 0)
+                {
+                    document.title = 'App';
+                }
+                else
+                {
+                    document.title = `(${messages}) New messages`;
+                }
+            } 
+            else 
+            {
+              document.title = 'App';
+            }
+          }, 1000);
+
+        //j  k
+        const multiply = (num1, num2) => num1*num2;
+
+        //l
+        function countPositive(nums)
+        {
+            let count = 0;
+            nums.forEach((value) =>{
+                if (value > 0)
+                {
+                    count++;
+                }
+            });
+
+            return count;
+        }
+        console.log(countPositive([1, -3, 5]));
+
+        //m
+        function addNum(array, num) {
+            return array.map((value) => value + num);
+        }
+        
+        console.log(addNum([1, -3, 5], 1)); // Output: [2, -2, 6]
+
+        /* same thing as above but using for each method 
+        function addNum(array, num) {
+            array.forEach((value, index) => {
+                array[index] = value + num;
+            });
+            return array;
+        }
+        
+        console.log(addNum([1, -3, 5], 1));*/
+
+        //o
+        function removeEgg(foods) {
+            let eggsRemoved = 0;
+    
+            return foods.filter((food) => {
+              if (food === 'egg' && eggsRemoved < 2) {
+                eggsRemoved++;
+                return false;
+              }
+    
+              return true;
+            });
+          }
+    
+          console.log(removeEgg(['egg', 'apple', 'egg', 'egg', 'ham']));
+        
+        
+
+    </script>
+    
+</body>
+</html>
