@@ -12,6 +12,7 @@ let score = JSON.parse(localStorage.getItem('score')) || {
   let intervalID;
 
   function autoPlay(){
+    const buttonAutoPlay = document.querySelector(".js-auto-play-button");
 
     if (!isAutoPlaying)
     {
@@ -20,11 +21,13 @@ let score = JSON.parse(localStorage.getItem('score')) || {
       }, 1000);
 
       isAutoPlaying = true;
+      buttonAutoPlay.textContent = "Stop Playing";
     }
     else {
       // set interval returns a number we can use it to stop running
       clearInterval(intervalID);
       isAutoPlaying = false;
+      buttonAutoPlay.textContent = "Auto Play";
     }
     
   }
@@ -72,6 +75,10 @@ let score = JSON.parse(localStorage.getItem('score')) || {
     else if (event.key === 's')
     {
       playGame('scissors');
+    }
+    else if (event.key == "a")
+    {
+      autoPlay();
     }
   })
   
